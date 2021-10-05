@@ -1,0 +1,182 @@
+{
+	"info": {
+		"_postman_id": "894d62c0-786c-44b6-b012-82e41b341e32",
+		"name": "YieldStreet",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "200 - Success",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Validate Coordinate\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.coord.lon).to.eql(-0.1257);",
+							"    pm.expect(jsonData.weather[0].id).to.eql(800);",
+							"    pm.expect(jsonData.base).to.eql(\"stations\");",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "api.openweathermap.org/data/2.5/weather?APPID=951d080745b04310c281038409c5582f&q=London,uk",
+					"host": [
+						"api",
+						"openweathermap",
+						"org"
+					],
+					"path": [
+						"data",
+						"2.5",
+						"weather"
+					],
+					"query": [
+						{
+							"key": "callback",
+							"value": "test",
+							"disabled": true
+						},
+						{
+							"key": "APPID",
+							"value": "951d080745b04310c281038409c5582f"
+						},
+						{
+							"key": "q",
+							"value": "London,uk"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "401 - Unauthoorized",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Validate Coordinate\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.coord.lon).to.eql(-0.1257);",
+							"    pm.expect(jsonData.weather[0].id).to.eql(800);",
+							"    pm.expect(jsonData.base).to.eql(\"stations\");",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "api.openweathermap.org/data/2.5/weather?q=London,uk",
+					"host": [
+						"api",
+						"openweathermap",
+						"org"
+					],
+					"path": [
+						"data",
+						"2.5",
+						"weather"
+					],
+					"query": [
+						{
+							"key": "callback",
+							"value": "test",
+							"disabled": true
+						},
+						{
+							"key": "APPID",
+							"value": "951d080745b04310c281038409c5582f",
+							"disabled": true
+						},
+						{
+							"key": "q",
+							"value": "London,uk"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "400 - Bad request",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"pm.test(\"Validate Coordinate\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.coord.lon).to.eql(-0.1257);",
+							"    pm.expect(jsonData.weather[0].id).to.eql(800);",
+							"    pm.expect(jsonData.base).to.eql(\"stations\");",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "api.openweathermap.org/data/2.5/weather?APPID=951d080745b04310c281038409c5582f",
+					"host": [
+						"api",
+						"openweathermap",
+						"org"
+					],
+					"path": [
+						"data",
+						"2.5",
+						"weather"
+					],
+					"query": [
+						{
+							"key": "callback",
+							"value": "test",
+							"disabled": true
+						},
+						{
+							"key": "APPID",
+							"value": "951d080745b04310c281038409c5582f"
+						},
+						{
+							"key": "q",
+							"value": "London,uk",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
